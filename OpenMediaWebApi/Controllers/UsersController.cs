@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace OpenMediaWebApi.Controllers
 {
     [ApiController]
-    [Route("api/v1/[controller]")]
+    [Route("api/v1/user")]
     public class UsersController : ControllerBase
     {
         private readonly UsersService _usersService;
