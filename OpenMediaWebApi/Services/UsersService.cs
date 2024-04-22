@@ -27,6 +27,13 @@ namespace OpenMediaWebApi.Services
         public async Task<User?> GetAsync(string id) =>
             await _usersCollection.Find(user => user.Id == id).FirstOrDefaultAsync();
 
+        public async Task<User?> FindByField(string field, string value) {
+            var filter = Builders<User>.Filter.Eq(field, value);
+
+            return await _usersCollection.Find(filter)
+                               .SingleOrDefaultAsync();
+        }
+
         public async Task CreateAsync(User user) =>
             await _usersCollection.InsertOneAsync(user);
 
